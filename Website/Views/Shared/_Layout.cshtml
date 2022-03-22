@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Kilgharrah</title>
+    <link rel="stylesheet" href="/css/site.css" />
+</head>
+<body>
+    <header id="home">
+        <h1 class="logo">Kilgharrah</h1>
+        <div class="inline">
+            <nav>
+                <ul>
+                    <li><a href="#home" class="underline hover from-middle" data-translation="8">Home</a></li>
+                    <li><a href="#game" class="underline hover from-middle" data-translation="9">Game</a></li>
+                    <li><a href="#about" class="underline hover from-middle" data-translation="10">About</a></li>
+                </ul>
+            </nav>
+
+            <div class="languages">
+                <img src="/assets/img/flag_da.png" alt="Dansk" title="Dansk" class="flag" data-flag="da"/>
+                <img src="/assets/img/flag_en.png" alt="English" title="English" class="flag" data-flag="en"/>
+                <img src="/assets/img/flag_hu.png" alt="Magyar" title="Magyar" class="flag" data-flag="hu"/>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer id="about">
+        <div>
+            <h2>Kilgharrah</h2>
+            <p data-translation="14">
+                This website is created for the childrens who want to learn more about our solar system where we all live.
+                They can learn a lot of useful things about space and planets in a playful way. We make this website easy to use and interesting.Also they can choose different languages and different levels according their knowledge about the space.
+            </p>
+        </div>
+
+        <div>
+            <h2 data-translation="15">The team:</h2>
+            <p data-translation="22">
+                Lord Kent<br />
+                Marcus the engineer<br />
+                Kristóf, the one that got away<br />
+                Ágnes the boss<br />
+                Márton the man, the myth, the legend<br />
+                &amp; Richárd, the hungry one.
+            </p>
+        </div>
+
+        <div></div>
+    </footer>
+</body>
+</html>

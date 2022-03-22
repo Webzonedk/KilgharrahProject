@@ -1,0 +1,93 @@
+﻿@using System.Text.Json
+@using Website.Models;
+@model Tuple<List<PlanetModel>, List<TranslationTextModel>>
+
+@{
+    ViewData["Title"] = "Home Page" ;
+}
+
+<script src="/js/app.js" planets_text="@JsonSerializer.Serialize(Model.Item1)" translation_text="@JsonSerializer.Serialize(Model.Item2)" defer></script>
+
+<article>
+    <section>
+        <h2 data-translation="1">Our solar system</h2>
+        <img src="/assets/img/solar_system.png" alt="Our solar system" title="Our solar system" />
+        <p data-translation="12">Our solar system is very large, and unique, but ofcourse there are others out there</p>
+    </section>
+
+    <section>
+        <h3 data-translation="2">Did you know?</h3>
+        <p data-translation="11">there are only things in our solar system that you can’t even guess</p>
+    </section>
+</article>
+
+<article>
+    <section>
+        <img src="/assets/img/earthImpact.jpg" alt="Earth Impact" title="Esarth Impact" />
+    </section>
+
+    <section>
+        <h3 data-translation="3">History of the Earth</h3>
+        <p data-translation="13">Learn the history of a remarkable planet. This is nothing like what we found in the universe.</p>
+    </section>
+</article>
+
+<article>
+    <img src="/assets/img/lunar.jpg" alt="Lunar" title="Lunar" />
+</article>
+
+<article id="game">
+    <div id="information-modal" class="modal">
+        <section class="header">
+            <h3>
+                <span></span>
+                <img class="rotating slow icon" src="">
+            </h3>
+            <button id="information-modal-close-btn" title="Close" type="button">×</button>
+        </section>
+
+        <section class="content">
+                <p class="fact">Text goes here</p>
+
+                <span class="inline btn-group">
+                    <button class="prev-btn" type="button" title="Show previous fact">&lt;</button>
+                    <button class="next-btn" type="button" title="Show next fact">&gt;</button>
+                </span>
+        </section>
+    </div>
+
+    <article>
+        <section id="game-question">
+            <h3 data-translation="6">Click on any planet, to see some information</h3>
+            <h3 class="score"></h3>
+        </section>
+
+        <section>
+            <img src="/assets/img/planet/sun.gif" alt="Sun" title="You can't go here" style="max-width: 20rem;box-shadow: 0 0 8rem 1.6rem orange;border-radius: 50%;" />
+            <img src="/assets/img/planet/mercury.gif" alt="Mercury" title="Go to mercury" data-index="0" data-click="0" data-lock="q" style="max-width: 6rem;"/>
+            <img src="/assets/img/planet/venus.gif" alt="Venus" title="Go to venus" data-index="1" data-click="1" data-lock="w" style="max-width: 7rem;"/>
+            <img src="/assets/img/planet/earth.gif" alt="Earth" title="Go to earth" data-index="2" data-click="2" data-lock="e"/>
+            <img src="/assets/img/planet/mars.gif" alt="Mars" title="Go to mars" data-index="3" data-click="3" data-lock="r" style="max-width: 4.4rem;"/>
+            <img src="/assets/img/planet/jupiter.gif" alt="Jupiter" title="Go to jupiter" data-index="4" data-click="4" data-lock="t" style="max-width: 20rem;"/>
+            <img src="/assets/img/planet/saturn.gif" alt="Saturn" title="Go to saturn" data-index="5" data-click="5" data-lock="y" style="max-width: 15.8rem;"/>
+            <img src="/assets/img/planet/uranus.gif" alt="Uranus" title="Go to uranus" data-index="6" data-click="6" data-lock="u" style="max-width: 8.1rem;"/>
+            <img src="/assets/img/planet/neptune.gif" alt="Neptune" title="Go to neptune" data-index="7" data-click="7" data-lock="i" style="max-width: 6.9rem;"/>
+            <img src="/assets/img/planet/pluto.gif" alt="Pluto" title="Go to pluto" data-index="8" data-click="8" data-lock="o" style="max-width: 3.3rem;"/>
+        </section>
+
+        <button type="button" class="start-btn" data-translation="7">Start game</button>
+
+        <section class="answer-grid hidden">
+                @*<button class="overflow-dots" type="button" data-index="0">Mercury</button>
+                <button class="overflow-dots" type="button" data-index="1">Venus</button>
+                <button class="overflow-dots" type="button" data-index="2">Earth</button>
+                <button class="overflow-dots" type="button" data-index="3">Mars</button>
+                <button class="overflow-dots" type="button" data-index="4">Jupiter</button>
+                <button class="overflow-dots" type="button" data-index="5">Saturn</button>
+                <button class="overflow-dots" type="button" data-index="6">Uranus</button>
+                <button class="overflow-dots" type="button" data-index="7">Neptune</button>
+                <button class="overflow-dots" type="button" data-index="8">Pluto</button>*@
+        </section>
+    </article>
+
+</article>

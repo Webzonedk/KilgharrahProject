@@ -1,0 +1,461 @@
+/* Root level variables */
+
+:root {
+    --background-color: hsl(195, 6%, 13%);
+    --primary-text-color: hsl(0, 100%, 99%);
+    --primary-color: blue;
+    --secondary-color: red;
+}
+
+
+/* Remove link styling */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* Remove all margins and paddings, Remove blue highlight on mobile & Change the default font-family & color */
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    font-family: "OpenSans", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    color: var(--primary-text-color);
+}
+
+
+/* Set font-size to 62.5% so 0.1rem = 1 px */
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+
+/* Stretch to fill the entire page */
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    background-color: var(--background-color);
+    background-image: url('/assets/img/background.png');
+}
+
+
+/* Classes */
+
+.hidden {
+    display: none !important;
+}
+
+.rotating {
+    animation: rotating 3s linear infinite;
+}
+
+    .rotating.slow {
+        animation: rotating 10s linear infinite;
+    }
+
+.inline {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+    .underline.gradient {
+        text-decoration: none;
+        background-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        background-size: 100% 1px;
+        background-repeat: no-repeat;
+        background-position: 0% 100%;
+    }
+
+    .underline.hover {
+        text-decoration: none;
+        background-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        background-size: 0% 1px;
+        background-repeat: no-repeat;
+        background-position: 0% 100%;
+        transition: background-size .3s ease;
+    }
+
+        .underline.hover.from-right {
+            background-position: 100% 100%;
+        }
+
+        .underline.hover.from-middle {
+            background-position: 50% 100%;
+        }
+
+        .underline.hover:hover {
+            background-size: 100% 1px;
+        }
+
+.overflow-dots {
+    max-width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+p, li, label {
+    font-size: 1.6rem;
+    line-height: 2.3rem;
+}
+
+h1.logo {
+    font-size: 5.2rem;
+    font-weight: 700;
+    color: var(--primary-text-color);
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 3.6rem;
+}
+
+/* Header */
+
+header {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 2rem 5%;
+    text-decoration: none;
+    background-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: 0% 100%;
+    margin-bottom: 5rem;
+}
+
+
+
+    header ul {
+        list-style: none;
+        display: flex;
+        flex-flow: row wrap;
+        gap: 2rem;
+    }
+
+    header img.logo {
+        max-width: 15%;
+    }
+
+    header nav {
+        margin-right: 1vw;
+    }
+
+    header .languages {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 1rem;
+    }
+
+    header .flag {
+        max-width: 4rem;
+        border-radius: 50%;
+        cursor: pointer;
+        filter: grayscale(.69);
+        transition: all .25s ease-in-out;
+    }
+
+        header .flag.selected {
+            box-shadow: 0 0 1rem rgba(255, 255, 255, .8);
+            filter: grayscale(0);
+        }
+
+/* Footer */
+footer {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10vw;
+    align-items: flex-start;
+    padding: 5.5rem 5vw 2.5rem 5vw;
+    border-radius: 23% 0% 10% 10% / 21% 10% 0% 0%;
+    background-image: url('/assets/img/footer.png');
+    margin-top: 10rem;
+}
+
+    footer div {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        gap: 1.4rem;
+        max-width: 33%;
+    }
+
+/* Main */
+
+main {
+    max-width: 100vw;
+    /*margin-left: 5vw;*/
+}
+
+article {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+}
+
+    article > img {
+        max-width: 100%;
+    }
+
+    article section {
+        width: 45%;
+    }
+
+        article section > img {
+            max-width: 100%;
+            /*border-radius: 32% 30% 39% 41% / 0% 24% 37% 33%;*/
+        }
+
+    article article {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+    }
+
+        article article section {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            width: 100%;
+        }
+
+.answer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    /*background-color: rgba(50, 50, 50, .5);*/
+    border-radius: 1rem;
+}
+
+    .answer-grid button[type=button] {
+        cursor: pointer;
+        border: none;
+        padding: 2rem;
+        font-size: 1.6rem;
+        text-align: center;
+        border: .2rem solid rgba(0, 0, 0, .69);
+        background-color: rgba(100, 100, 100, .4);
+        transition: all .169s linear;
+        border-radius: 1rem;
+    }
+
+        .answer-grid button[type=button].right {
+            background-color: lime;
+        }
+
+        .answer-grid button[type=button].wrong {
+            background-color: red;
+        }
+
+        .answer-grid button[type=button]:hover {
+            background: rgba(0, 100, 200, .4);
+        }
+
+#game {
+    padding-top: 10rem;
+}
+
+    #game img[data-click] {
+        cursor: pointer;
+        transition: all .15s ease-in-out;
+        max-width: 8rem;
+    }
+
+
+        #game img[data-click].active {
+            transform: scale(1.3);
+        }
+
+        #game img[data-click].inactive {
+            filter: grayscale(100%) brightness(.4);
+        }
+
+        #game img[data-click].destroyed {
+            filter: blur(.5rem) grayscale(.8);
+        }
+
+        #game img[data-click]:hover {
+            transform: scale(1.25);
+        }
+
+.start-btn {
+    cursor: pointer;
+    border: none;
+    padding: 2rem;
+    font-size: 2.4rem;
+    text-align: center;
+    border: .2rem solid rgba(0, 0, 0, .69);
+    background-color: rgba(100, 100, 100, .4);
+    transition: all .169s linear;
+}
+
+    .start-btn[type=button]:hover {
+        background: rgba(0, 100, 200, .4);
+    }
+
+/* Planet information modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    background-color: var(--background-color);
+}
+
+    .modal.open {
+        display: flex;
+        animation: slideUpExpand .69s ease-out;
+    }
+
+    .modal.closing {
+        animation: slideDownCollapse .69s ease-in;
+    }
+
+    .modal .header {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem 0;
+        margin-left: 5%;
+        max-width: 90%;
+    }
+
+        .modal .header h3 {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
+            font-size: 3.4rem;
+            font-weight: 500;
+            gap: 2rem;
+        }
+
+        .modal .header .icon {
+            width: 5em;
+        }
+
+        .modal .header button {
+            position: absolute;
+            right: 5%;
+            font-size: 5.69rem;
+            background-color: transparent;
+            border: none;
+            transition: .2s ease;
+            cursor: pointer;
+        }
+
+            .modal .header button:hover {
+                color: red;
+            }
+
+    .modal .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 2rem;
+        margin-left: 5%;
+        width: 90%;
+        max-height: 100%;
+        overflow-y: auto;
+        padding-bottom: 3rem;
+        gap: 5rem;
+    }
+
+.prev-btn, .next-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all .16s linear;
+    font-size: 10rem;
+}
+
+    .prev-btn:hover, .next-btn:hover {
+        color: red;
+    }
+
+    .prev-btn:active, .next-btn:active {
+        transform: scale(.9);
+    }
+
+
+/* Animations */
+@keyframes rotating {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes slideUpExpand {
+    0% {
+        transform: translateY(100vh) scale(.8);
+        opacity: .69;
+    }
+
+    80% {
+        transform: translateY(0) scale(.8);
+        opacity: .69;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slideDownCollapse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    80% {
+        transform: translateY(0) scale(.8);
+        opacity: .69;
+    }
+
+    100% {
+        transform: translateY(100vh) scale(.8);
+        opacity: .69;
+    }
+}
